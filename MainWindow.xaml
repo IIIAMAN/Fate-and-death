@@ -1,0 +1,107 @@
+﻿<Window x:Class="PraKTICHESKAYATWOOOOO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PraKTICHESKAYATWOOOOO"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="799">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Календарь.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="263*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="373*"/>
+            <ColumnDefinition Width="213*"/>
+            <ColumnDefinition Width="213*"/>
+        </Grid.ColumnDefinitions>
+        <DatePicker x:Name="datepicker" Grid.ColumnSpan="3" FontSize="16" FontFamily="Algerian" SelectedDateChanged="datepicker_SelectedDateChanged" Background="{x:Null}" Opacity="0.75">
+            <DatePicker.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF19A683" Offset="1"/>
+                </LinearGradientBrush>
+            </DatePicker.Foreground>
+            <DatePicker.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                    <GradientStop Color="#FFA3AEB9"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF0500FF" Offset="1"/>
+                </LinearGradientBrush>
+            </DatePicker.BorderBrush>
+        </DatePicker>
+        <Button x:Name="delete" Content="Удалить запись" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="38" Width="330" RenderTransformOrigin="0.5,0.5" Click="Delete_click" Foreground="White" BorderBrush="#FF0039FC">
+            <Button.Background>
+                <SolidColorBrush Color="#FF640000" Opacity="0.5"/>
+            </Button.Background>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.074"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="create" Content="Создать" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Grid.Column="1" Width="160" Height="38" Click="Create_Click" Foreground="White" BorderBrush="#FF003AFF">
+            <Button.Background>
+                <SolidColorBrush Color="#FF1BA759" Opacity="0.5"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="save" Grid.Column="2" Content="Сохранить" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="38" Width="193" Click="Rename_Click" Foreground="White" BorderBrush="#FF003AFF">
+            <Button.Background>
+                <SolidColorBrush Color="#FF1E8C9B" Opacity="0.5"/>
+            </Button.Background>
+        </Button>
+        <ListBox x:Name="spisok" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,24" Grid.RowSpan="3" Foreground="White" BorderBrush="#FF0040FF" SelectionChanged="spisok_SelectionChanged">
+            <ListBox.Background>
+                <SolidColorBrush Color="#FF180022" Opacity="0.4"/>
+            </ListBox.Background>
+        </ListBox>
+        <Label Grid.Column="1" Content="Название:" HorizontalAlignment="Left" Margin="1,33,0,0" VerticalAlignment="Top" Width="138" Height="25" Foreground="White" FontSize="14" FontFamily="Algerian" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.035"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Grid.Column="1" Content="Описание:" HorizontalAlignment="Left" Margin="1,48,0,0" VerticalAlignment="Top" Width="138" Height="25" Foreground="White" FontSize="14" FontFamily="Algerian" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.RowSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.035"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="nazvaniezametka" Grid.Column="1" HorizontalAlignment="Left" Margin="83,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="333" Grid.ColumnSpan="2" Foreground="White" TextChanged="nazvaniezametka_TextChanged">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF5937C5" Opacity="0.5"/>
+            </TextBox.Background>
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF00FFD8" Opacity="0.5"/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox x:Name="opisaniezametka" Grid.Column="1" HorizontalAlignment="Left" Margin="83,7,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="333" Grid.ColumnSpan="2" Foreground="White" TextChanged="opisaniezametka_TextChanged">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF5937C5" Opacity="0.5"/>
+            </TextBox.Background>
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF00FFD8" Opacity="0.5"/>
+            </TextBox.BorderBrush>
+        </TextBox>
+
+    </Grid>
+</Window>
